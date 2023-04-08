@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  public basePath = this.http.imgBasePath
+  // public basePath = this.http.imgBasePath
 
   public cartProduct: any = []
   public total = 0
@@ -86,7 +86,7 @@ export class CartComponent implements OnInit {
     // console.log(newData)
     window.localStorage.setItem('cart', JSON.stringify([...newData]))
     this.cartProduct = this.getCart()
-    this.http.totalCart = this.getCart().length
+    // this.http.totalCart = this.getCart().length
     this.total = this.sumtotle()
     this.priceTotal = this.sumPrice()
     this.pricePromo = this.sumPromotion()

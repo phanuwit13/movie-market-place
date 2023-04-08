@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { environment } from 'src/environments/environment'
 import { HttpService } from 'src/services/http.service'
 @Component({
   selector: 'app-menu',
@@ -13,7 +12,7 @@ export class MenuComponent implements OnInit {
   constructor(public router: Router, public http: HttpService) {}
 
   ngOnInit(): void {
-    console.log('process',environment)
+    console.log('process',process.env['API_KEY'])
     // this.http.totalCart = this.checkLength()
   }
   // checkLength() {

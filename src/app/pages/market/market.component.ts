@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./market.component.scss']
 })
 export class MarketComponent implements OnInit {
-  public basePath = this.http.imgBasePath
+  // public basePath = this.http.imgBasePath
   public movieShow = []
   public movie = []
   public addProduct: any = []
@@ -59,7 +59,7 @@ export class MarketComponent implements OnInit {
       window.localStorage.setItem('cart', JSON.stringify([cart]))
       Swal.fire('', 'เพิ่มสินค้าสำเร็จ', 'success')
     }
-    this.http.totalCart = this.getCart().length
+    // this.http.totalCart = this.getCart().length
     this.amount = 1
   }
   changeAmount(type: any) {

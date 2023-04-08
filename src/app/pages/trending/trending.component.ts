@@ -6,7 +6,7 @@ import { HttpService } from 'src/services/http.service'
   styleUrls: ['./trending.component.scss'],
 })
 export class TrendingPage implements OnInit {
-  public basePath = this.http.imgBasePath
+  // public basePath = this.http.imgBasePath
   public movie = []
   public addProduct: any = []
   public price = 0
@@ -19,7 +19,7 @@ export class TrendingPage implements OnInit {
   }
 
   async fetchData(key: string) {
-    let httpResponse: any = await this.http.get(key == '' ? 'a' : key)
+    let httpResponse: any = await this.http.getTrendListMovie()
     console.log(httpResponse)
     // if (httpResponse.connect) {
     //   this.movie = await httpResponse.response.results
