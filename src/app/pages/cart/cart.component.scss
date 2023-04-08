@@ -1,0 +1,151 @@
+.content-detail {
+  background-color: #ffffff;
+  margin-top: 4%;
+  margin-bottom: 5%;
+  border-radius: 20px;
+}
+
+.img-thumbnail {
+  padding: 0px !important;
+  background-color: #ffffff !important;
+  border: 0px !important;
+  border-radius: 10px !important;
+  max-width: 90% !important ;
+  height: auto;
+}
+.img-brand {
+  object-fit: cover;
+  width: 45px;
+  height: 45px;
+  object-position: 50% 50%;
+  border-radius: 10px;
+}
+.title-cart {
+  font-size: 28px;
+  color: #484848;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.cart-table {
+  margin: 25px;
+  padding-bottom: 10px;
+}
+.cart-brand {
+  /* height: 60px; */
+  display: flex;
+  align-items: flex-start;
+  padding: 0 !important;
+  align-items: center;
+  text-align: center;
+  /* border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important; */
+  border-bottom: 0px !important;
+}
+.cart-brand span {
+  color: #484848;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.cart-table .row {
+  // align-items: center !important;
+  border-bottom-width: 1px !important;
+  text-align: end;
+}
+.cart-table td,
+th {
+  border-bottom-width: 0px !important;
+}
+.cart-price {
+  color: #a0a0a0;
+  font-size: 14px;
+}
+.row .product-title {
+  text-align: left !important;
+}
+.btn-proceed {
+  background-color: #0d6efd;
+  color: #ffffff;
+  font-size: 15px;
+  width: 340px;
+  height: 50px;
+  border-radius: 15px !important;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 100;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.btn-proceed:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+.subtotal {
+  color: #f83a29;
+  font-size: 22px;
+}
+.sumtotle {
+  margin-left: 10px;
+  font-size: 25px;
+  font-weight: 600;
+  color: #f83a29;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border: 0px solid #f0f0f0 !important;
+}
+tbody td{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.price {
+  color: #f83a29;
+  font-size: 24px;
+  font-weight: 600;
+}
+.promo {
+  color: #a0a0a0;
+}
+
+.btn-clear {
+    background-color: #d3d3d3;
+    color: #ffffff;
+    font-size: 15px;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 100;
+    margin-top: -50px;
+    float: right;
+  }
+  .btn-delete{
+    background-color: #f6f345;
+    color: #484848;
+    font-size: 15px;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 100;
+  }
+  .name-brand{
+    font-family: "Sriracha", cursive;
+    color: #484848;
+    text-align: center;
+  }
