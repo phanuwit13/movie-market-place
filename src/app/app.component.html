@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<body
+  [ngClass]="{ dark: this.http.isDarkEnable, light: !this.http.isDarkEnable }"
+>
+  <router-outlet></router-outlet>
+</body>

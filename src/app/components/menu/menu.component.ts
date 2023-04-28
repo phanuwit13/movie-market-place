@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
   public isOpenNav = false
   constructor(
     public router: Router,
-    private http: HttpService,
+    public http: HttpService,
     public location: Location
   ) {}
 

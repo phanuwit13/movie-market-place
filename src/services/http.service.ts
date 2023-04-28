@@ -18,6 +18,13 @@ export class HttpService {
     results: [],
   }
 
+  public isDarkEnable = window.localStorage.getItem('theme') === 'dark' && true
+
+  public changeTheme = () => {
+    this.isDarkEnable = !this.isDarkEnable
+    window.localStorage.setItem('theme', this.isDarkEnable ? 'dark' : 'light')
+  }
+
   public get = (path: string) => {
     return new Promise<IHttpResponse>(async (resolve) => {
       try {
