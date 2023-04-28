@@ -1,0 +1,39 @@
+<div class="container">
+  <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#fff"
+    type="square-jelly-box"
+    [fullScreen]="true"
+    ><p style="color: white">Loading...</p></ngx-spinner
+  >
+  <div
+    class="movie-list grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-x-[30px] gap-y-[60px]"
+  >
+    <div *ngFor="let item of movie" class="w-fit m-auto h-[100%]">
+      <div class="bg-white w-fit rounded-md p-[20px]">
+        <img class="rounded-sm aspect-[2/3]" src="{{ item.poster_path }}" alt="" />
+      </div>
+      <div class="mt-[16px] text-primary flex flex-col gap-[8px]">
+        <span class="text-primary">{{ item.title }}</span>
+        <p class="text-14 text-[#CACDCC]">
+          {{ dayjs(item.release_date).format('MMM DD YYYY') }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="py-[20px] flex justify-center">
+    <ngb-pagination
+      *ngIf="totalResults"
+      [collectionSize]="totalResults"
+      [(page)]="page"
+      [maxSize]="10"
+      [rotate]="true"
+      [boundaryLinks]="true"
+      (pageChange)="fetchDataChangePage()"
+      class="my-pagination"
+    ></ngb-pagination>
+  </div>
+</div>
+<!-- (click)="fetchDataChangePage(page)" -->
+<!-- [(page)]="page" -->

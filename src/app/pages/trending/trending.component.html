@@ -1,1 +1,112 @@
-<div class="container">sss</div>
+<div class="">
+  <!-- <div class="h-[600px] flex items-center justify-center overflow-hidden">
+    <img class="" src="{{ movie[0]?.backdrop_path }}" alt="" />
+  </div> -->
+  <div class="relative">
+    <ngx-slick-carousel
+      class="carousel gap-x-[30px]"
+      #slickMovieTrend="slick-carousel"
+      [config]="slideConfig"
+      (breakpoint)="breakpoint($event)"
+    >
+      <div
+        ngxSlickItem
+        *ngFor="let item of movie"
+        class="w-fit m-auto h-[100%] slide"
+      >
+        <div class="relative">
+          <div
+            class="h-[700px] overflow-hidden bg-cover bg-center brightness-[0.7] rounded-[10px]"
+            style="background-image: url({{ item.backdrop_path }})"
+          ></div>
+          <div class="absolute top-[20%] p-[16px]">
+            <h1
+              class="text-white text-[60px] font-bold max-w-[60%] font-sans uppercase py-[20px]"
+            >
+              {{ item.title }}
+            </h1>
+            <!-- <ngb-rating [rate]="3"> -->
+            <!-- <i class="bi-heart-fill filled"></i> -->
+
+            <ngb-rating [rate]="3">
+              <ng-template let-fill="fill" let-index="index">
+                <i
+                  class="bi-star{{ fill === 100 ? '-fill' : '' }}"
+                  [class.filled]="fill === 100"
+                  [class.low]="index < 3"
+                ></i>
+              </ng-template>
+            </ngb-rating>
+
+            <div
+              class="max-w-[50%] mt-[20px] rounded-[8px] text-white text-[18px]"
+            >
+              {{ item.overview }}
+            </div>
+          </div>
+        </div>
+        <!-- <div class="mt-[16px] text-primary flex flex-col gap-[8px]">
+          <span class="text-primary text-[14px]">{{ item.title }}</span>
+          <p class="text-[12px] text-[#CACDCC]">
+            {{ dayjs(item.release_date).format('MMM DD YYYY') }}
+          </p>
+        </div> -->
+      </div>
+    </ngx-slick-carousel>
+    <!-- <button
+      (click)="slickMovieTrend.slickPrev()"
+      class="lg:w-[44px] xl:w-[46px] 2xl:w-[60px] aspect-square bg-white rounded-full flex justify-center items-center absolute lg:left-[-11px] xl:left-[-12px] 2xl:left-[-30px] top-[calc(50%-60px)] drop-shadow-xl"
+    >
+      <ng-icon
+        name="heroChevronLeftMini"
+        class="text-[26px] text-primary opacity-[0.8]"
+      ></ng-icon>
+    </button>
+    <button
+      (click)="slickMovieTrend.slickNext()"
+      class="lg:w-[44px] xl:w-[46px] 2xl:w-[60px] aspect-square bg-white rounded-full flex justify-center items-center absolute lg:right-[-11px] xl:right-[-12px] 2xl:right-[-30px] top-[calc(50%-60px)] drop-shadow-xl"
+    >
+      <ng-icon
+        name="heroChevronRightMini"
+        class="text-[26px] text-primary opacity-[0.8]"
+      ></ng-icon>
+    </button> -->
+  </div>
+  <!-- <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#fff"
+    type="square-jelly-box"
+    [fullScreen]="true"
+    ><p style="color: white">Loading...</p></ngx-spinner
+  > -->
+  <!-- <div
+    class="movie-list grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-x-[30px] gap-y-[60px]"
+  >
+    <div *ngFor="let item of movie" class="w-fit m-auto h-[100%]">
+      <div class="bg-white w-fit rounded-md p-[20px]">
+        <img class="rounded-sm aspect-[2/3]" src="{{ item.poster_path }}" alt="" />
+      </div>
+      <div class="mt-[16px] text-primary flex flex-col gap-[8px]">
+        <span class="text-primary">{{ item.title }}</span>
+        <p class="text-14 text-[#CACDCC]">
+          {{ dayjs(item.release_date).format('MMM DD YYYY') }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="py-[20px] flex justify-center">
+    <ngb-pagination
+      *ngIf="totalResults"
+      [collectionSize]="totalResults"
+      [(page)]="page"
+      [maxSize]="10"
+      [rotate]="true"
+      [boundaryLinks]="true"
+      (pageChange)="fetchDataChangePage()"
+      class="my-pagination"
+    ></ngb-pagination>
+  </div> -->
+</div>
+<!-- (click)="fetchDataChangePage(page)" -->
+<!-- [(page)]="page" -->

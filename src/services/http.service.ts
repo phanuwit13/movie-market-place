@@ -2,20 +2,27 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
 import { ENV, ROOT_PATH, ROUTE_API } from '@configs/constants'
+import { IPagination } from '@interfaces/pagination'
+import { IHttpResponse } from '@interfaces/response'
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
-  // search/movie?api_key=179d983912bdcb395e93864692030745&query=
-
   constructor(private http: HttpClient, private router: Router) {}
 
+  public pagination: IPagination = {
+    page: 0,
+    total_pages: 0,
+    total_results: 0,
+    results: [],
+  }
+
   public get = (path: string) => {
-    return new Promise(async (resolve) => {
+    return new Promise<IHttpResponse>(async (resolve) => {
       try {
         const response = await this.http
-          .get(ROOT_PATH + path + `?api_key=${ENV.API_KEY}`)
+          .get(ROOT_PATH + path + `api_key=${ENV.API_KEY}`)
           .toPromise()
         resolve({ success: true, response })
       } catch (error) {
@@ -24,7 +31,44 @@ export class HttpService {
     })
   }
 
-  public getTrendListMovie = () => {
-    return this.get(`${ROUTE_API.TREND_MOVIE}`)
+  public setPagination = async (response: any) => {
+    this.pagination = {
+      page: response.page,
+      total_pages: response.total_pages,
+      total_results: response.total_results,
+      results: response.results,
+    }
+  }
+
+  public getTrendListMovie = async (page: number = 1) => {
+    const info = await this.get(`${ROUTE_API.TREND_MOVIE}?page=${page}&`)
+    if (info.success && info.response) {
+      this.setPagination(info.response)
+    }
+    return { ...info }
+  }
+
+  public getMovieNowPlaying = async (page: number = 1) => {
+    const info = await this.get(`${ROUTE_API.MOVIE_NOW_PLAYING}?page=${page}&`)
+    if (info.success && info.response) {
+      this.setPagination(info.response)
+    }
+    return { ...info }
+  }
+
+  public getTVAiringToday = async (page: number = 1) => {
+    const info = await this.get(`${ROUTE_API.TV_AIRING_TODAY}?page=${page}&`)
+    if (info.success && info.response) {
+      this.setPagination(info.response)
+    }
+    return { ...info }
+  }
+
+  public getTVPopular = async (page: number = 1) => {
+    const info = await this.get(`${ROUTE_API.TV_POPULAR}?page=${page}&`)
+    if (info.success && info.response) {
+      this.setPagination(info.response)
+    }
+    return { ...info }
   }
 }

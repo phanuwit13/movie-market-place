@@ -2,6 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 * {
   font-family: 'Nunito', sans-serif;
@@ -31,4 +34,39 @@
 //nav active
 .nav-active {
   @apply border-r-[4px] border-[#65CBD2] text-[#4C5456];
+}
+
+.text-primary {
+  color: #4c5456 !important;
+}
+
+a:hover {
+  color: unset !important;
+}
+
+// .my-pagination .page-item.active .page-link {
+//   z-index: 1;
+//   color: #ffffff;
+//   background-color: red !important;
+//   border-color: #009da0;
+// }
+
+.my-pagination .page-link.active,
+.active > .page-link {
+  background-color: #65cbd2 !important;
+  border-color: #65cbd2;
+  color: white !important;
+}
+.my-pagination .page-link.active,
+.page-link {
+  @apply text-[#4C5456];
+}
+.my-pagination .page-link {
+  @apply text-[#4C5456];
+  &:hover {
+    @apply text-[#4C5456];
+  }
+  &:focus {
+    box-shadow: none;
+  }
 }
